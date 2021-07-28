@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function cumprimentar(nome) {
+        alert(`Olá ${nome}`)
+    }
+
+    function processaInputUsuario(callback) {
+        let nome = prompt("Digite seu nome")
+        callback(nome)
+    }
+    function loadScript(src, callback) {
+            const script = document.createElement("script")
+            script.src = src
+            
+            script.onload = () => callback(null, script)
+            script.onerror = () => callback(new Error(`Falha ao carregar o script ${src}`))
+
+            document.head.append(script)
+        }
+
+        loadScript("./callbacks.js", (error, script) => {
+            // error-first-callback
+            if (error) {
+                console.log(error.message)
+            } else {
+                console.log(`O script ${script.src} foi carregado`)            
+                dizOi()
+            }
+        })
+
+
+    </script>
+</body>
+</html>

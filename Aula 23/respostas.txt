@@ -1,0 +1,61 @@
+        
+console.log("exercício 1")metodo Number
+function LerNumero(){
+    flag = 1
+    while (flag==1){
+    let numero = prompt("Digite um número")
+    if (isFinite(numero)) flag = 0
+    }
+}
+//LerNumero()
+function NumAleatorio(min,max){
+    let numero = Math.floor(Math.random()*(max-min+1)+min)
+    console.log(numero)
+}
+NumAleatorio(5,10)
+// 3)
+//     let i = 0;
+//     while (i != 10) {
+//         i += 0.2;
+//     }
+//Nunca parou pois o js n faz a conta de exatos mto bem, entao ele considera
+//como se desse 9.99999999999 ao inves de 10. poderiamos consertar isso com Math.floor
+
+_______________________________________________________________________________________________________________
+console.log("exercício 2")//metodo String
+    function capitilize(string){
+        let letraAnterior = " "
+        string = string.trim()
+        let vetorStr = []
+        for (let j of string){
+            vetorStr.push(j)
+        }
+        for (let i = 0; i < vetorStr.length;i++){
+            if (letraAnterior==" "){
+                vetorStr[i] = vetorStr[i].toUpperCase()
+            }
+            letraAnterior = vetorStr[i]
+            }            
+       let stringNova = ""
+        for (let i = 0; i < vetorStr.length;i++){
+            stringNova+=vetorStr[i]
+        }
+        console.log(stringNova)
+    }
+    //let string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    //capitilize(string)
+function checaSpam(string){
+    if (string.includes("jequiti") || string.includes("day trading")){
+        return 1
+    }  return 0
+}
+let string = "this is amazing, checkout JEQUITI"
+// console.log(checaSpam(string.toLowerCase()))
+function truncar(string, tamanhoMaximo){
+    let tamanhoString = string.length
+    if (tamanhoString>tamanhoMaximo){
+        string = string.substr(0, tamanhoMaximo)
+        console.log(string.padEnd(tamanhoMaximo+3, "."))
+    }
+}
+truncar("alo alo alo alo alo laoaoalla", 15)
